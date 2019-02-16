@@ -1,0 +1,18 @@
+﻿Basically we shall use EntityFramework to do as much heavey lifting as it can for us.
+
+However typically in most instance, we endup writting move complex locking and transaction system acess
+with other systems. Which now makes things difficault to ensure no violates all this additional CRUD access from the system
+which now has to live the the layer wrapping the databas.
+
+So what we do is introduce a whole bunch of wrapping methods here, so that we able to customize and improve
+the functionality on EF, with cusomt logic and tools, that it can't natival provide, that enhance our data acess.
+
+So for instance at EMSS consulting, the big problems here were that the
+locking system had to deal with the failure of locking and unlocking and who and what could update what.
+The layering with was not perfect.
+
+Typicaly here we are to implement simple logic, which is not to complex.
+
+The UDAL, is the layer that will wrap this layer, with spesific permission type functionality on which users
+can perform which operation on the database, typiclaly that layer should also inheriate a acess permission layer from the tables on the database and then
+build onto the shortfalls of what the database can't provide.

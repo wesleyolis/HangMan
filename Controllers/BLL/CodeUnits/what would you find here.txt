@@ -1,0 +1,19 @@
+﻿
+What you would find here are units of code, picture it as code blocks, in any engineer program like simulink, wonderware, process manager.
+were chain blocks togather, so that they can perform custom user configurable actions
+
+The define an interface for all the configurable parameters for creating and innstance of this code block.
+teh configurable params, have know values that are enums or belong to a know set, 
+variables with no constraints, are consider pass tought that there should be no braning logic or conditional logic acting on them,
+this allows this unit of code to be testable to ensure it works, before top level chaining or piping of information between codeUnits.
+
+Params that are passed between code units allso need to define there parameters, so that we only allow code units
+to be used were all require input information is avaliable.
+
+All this meta data should be index from the filesystem and pushed to UI desgin and never stored in the database, as there be mistakes and it now is testable
+with the information in the same souce file.
+
+CodeUnits for input data, may need to spesify a list of TO or DAL/Model information required to be input,
+in which there needs to be codeunit input data loaders
+The runner harnus would probably be a seperate application, which would allow us to use amazon SQS and SNS SWF if need be,
+but just use our own internal system, as so much over head to that.

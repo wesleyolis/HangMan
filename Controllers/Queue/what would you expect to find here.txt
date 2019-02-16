@@ -1,0 +1,5 @@
+﻿Here you should find all api endpoints that function like a queue, which means, as long as it is just a queue, there just a delay
+and won't exhaust your connection pool, there for things remiain running.
+
+One can uses notification protocals to push the information using websocks back to the client, or poll, if become overwelm with connections,
+but problem is there is period of time before a port can be reused.

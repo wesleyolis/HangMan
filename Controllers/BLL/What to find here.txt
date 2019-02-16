@@ -1,0 +1,11 @@
+﻿Business logic for the backend should be placed here.
+
+The thing with business logic, typically they like to customize it with there are two has base class interface
+then specialization of that, but it becomes dam complex to follow all the hooks, what is customized and were it is customized.
+Especially at design time, because need to know who all inheriates from this thing, which out test on this business logic
+one is going to be really stuffed, because some can back the core business logic, while specializing and instance
+and at times some people copy and past duplicate the core code, so that problem is that this were things are going to really go wrong and go wrong quickly.
+
+
+If there is share business logic, which tends to mend its self with validation,
+then that needs to be defined in a common folder format, of custom validation from a schema or javascript run on the backend as well.

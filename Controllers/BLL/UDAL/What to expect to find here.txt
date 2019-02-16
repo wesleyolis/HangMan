@@ -1,0 +1,4 @@
+﻿
+The UDAL, is the layer that will wrap this layer, with spesific permission type functionality on which users
+can perform which operation on the database, typiclaly that layer should also inheriate a acess permission layer from the tables on the database and then
+build onto the shortfalls of what the database can't provide.

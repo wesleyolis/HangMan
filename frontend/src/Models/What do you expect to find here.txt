@@ -1,0 +1,36 @@
+Here I would expect to find the single system state model,
+that should be uptodate and kept insync with the whole system.
+
+In otherwords, in certain frameworks there are views, which then each have component and service,
+which allow simple form capture and update of information to and from a database system.
+
+However, when dealing with somthing more complex like frametrack, or some GLS/IMQS webeditor, the whole
+rendered stat of what is being display needs to be kept uptodate, as we don't want to
+refecth all the information from the database everytime.
+
+This would be somthing like the grid that I saw were all CCS communication is running from the frontend each time to the backend, which is bad.
+It needs to run to and in memory model and use local-storage as backups and cache.
+
+So basically this would allow one to keep the simple forms and information that is adhoc for backend structured correctly,
+were things are all field away with there views.
+
+
+When one makes CRUD operations, that would need to maintain a global instance of models, were they can potentialloy be many.
+So typically all operations need to be infused here with custom framework that provides CRUD EF type management, so if database failed to commit information
+to the datbase, the frontend would maintaince a state that is in sync, for failure cases.
+
+Ideally to speed things up and not be bog down by slow internet, one would want to optermistic that is going to commit and update the database,
+so then imediately apply those changes to the in memory model, If they were to fail, need to terminate the promis chain that has been kick off
+by this CRUD change and terminate it, then revert the change that fail and kick it off again.
+
+If there is internal observable state that is kept in sync, then there is a problem, that leaving stat in complete transaction form
+may cause system to corrupt its self.
+
+So Any internal state that needs to be kept insync, par simple model referances in controllers, if the controllers have additional
+links, then those need to be wrapped in all or nothing wait to promise finish identifiy, so they are only cancel when completed there work,
+otherwise we corrupt the system.
+
+This makes things more complicated, because how do wer know if there is obsverable that is an all or nothing watching a variable,
+we don't we would have to inspect or use typescript, to prevent people from using the incorrect improved observables of ours,
+which would keep track types of observations, this becomes quite tricky as I reach from farm track want to develop a new framework for everything.
+
